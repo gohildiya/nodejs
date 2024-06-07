@@ -35,7 +35,7 @@ var server = http.createServer(function(req,res){
                         }
                         else if(operation === '/div')
                             {
-                                output = 'division =' + (num1 / num2);
+                                output = 'division =' + (num1 / num2).toFixed(2);
                             }
         }
         res.write(output);

@@ -1,0 +1,1 @@
+name1 = meena name2 =  diya 

@@ -1,13 +1,14 @@
-class MyMail {
+class MyMail
+{
     constructor()
     {
-        this.sender = 'gohildiyas@gmail.com';
+        this.sender = 'ankit3385@gmail.com';
         this.host = 'gmail.com';
         this.password = '123123';
     }
     send(receiver,subject,message)
     {
-        console.log('I will send you mail');
+        console.log('I will send you email ' + subject  + ' ' + message);
     }
 }
-module.exports.MyMail = MyMail; 
+module.exports.MyMail = MyMail;

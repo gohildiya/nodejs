@@ -29,25 +29,43 @@ var mycontacts = [
     { "id": 20, "name": "geeta", "mobile": "1234567807", "email": "geeta@example.com", "city": "Surendranagar" }
 ]
 
-//get method is used to fetch single contact
-//localhost:5000/contact/1
+//get method is used to fetch single contact by id
+//localhost:5000/contact?id=1
+//get method is used to fetch contacts by city
+//localhost:5000/contact?city=surat
 //to fetch all contact
 //localhost:5000/contact
-app.get(ROUTE + "/:contactid?", function (req, res) {
-    let contactid = req.params.contactid;
-    if(contactid === undefined)
-        res.json(mycontacts);
-    else 
-    {
-        let temp = mycontacts.filter((contact) => {
-            if(contact.id == contactid)
+app.get(ROUTE, function (req, res) {
+    let id = req.query.id;
+    let city = req.query.city;
+    let name = req.query.name;
+    console.log(id,city,name); 
+    let temp = [];
+    if (id === undefined && city === undefined && name === undefined){
+        temp = mycontacts;
+        }
+    else if(id !== undefined){
+        temp = mycontacts.filter((contact)=>{
+            if(contact.id == id)
                 return contact;
         });
-        if(temp.length === 0)
-            res.json({'error':'no contact found'});
-        else 
-            res.json(temp);
     }
+    else if(city !== undefined){
+        temp = mycontacts.filter((contact)=>{
+            if(contact.city == city)
+                return contact;
+        });
+    }
+    else if(name !== undefined){
+        temp = mycontacts.filter((contact)=>{
+            if(contact.name == name)
+                return name;
+        });
+    }
+    if(temp.length === 0)
+        res.json({'error':'contact not found'})
+    else
+        res.json(temp);
 });
 
 const PORTNO = 5000;

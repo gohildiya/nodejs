@@ -7,8 +7,8 @@ const ROUTE = '/contact';
 app.use(function(req,res,next){
     console.log('time checking middleware');
     let hour = now.getHour();
-    if(hour>=0 && hour<=9)
-        res.send('you can not access between 12 am to 11 am');
+    if(hour>=0 && hour<=8)
+        res.send('you can not access between 12 am to 8 am');
     else 
         next();
 });

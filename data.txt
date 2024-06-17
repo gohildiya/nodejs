@@ -1,0 +1,10 @@
+Method: get
+URL: data.txt
+Datetime: 17-06-202408:06AM
+IP: 127.0.0.1:24
+
+Method: get
+URL: /data
+Datetime: 17-06-2024 08:06 AM
+IP: ::ffff:127.0.0.1
+

@@ -58,6 +58,7 @@ let updateObject = function (request, response) {
             });
         }).catch((error) => {
             response.json([{ 'error': 'yes', 'message': 'error in connection' }]);
+            
         })
     }
 }

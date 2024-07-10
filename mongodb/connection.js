@@ -9,4 +9,5 @@ let db = client.connect(database_url).then((client) => {
     console.error(error);
     throw error;
 });
+
 module.exports.dbPromise = db;
